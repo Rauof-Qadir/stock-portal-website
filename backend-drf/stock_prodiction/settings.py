@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'account',
     'api',
+    'corsheaders',
 
 
 ]
@@ -53,6 +54,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = "stock_prodiction.urls"
@@ -126,3 +129,6 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# CORS settings
+CORS_ALLOW_ALL_ORIGINS = True # Allow all origins for development purposes, hum yahan par apna frontend ka link dan ga or batayan ga ka sirf uc frontend sa ana wali requests ko serve karo(data do)
